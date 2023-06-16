@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    container_name: basic-mysql
+    environment:
+      - .env
+    ports:
+      - '3306:3306'
+    networks:
+      - cms-network
+    volumes:
+      - ./mysql-db:/var/lib/mysql
+
+networks:
+  cms-network:
